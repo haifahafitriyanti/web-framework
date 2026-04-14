@@ -1,13 +1,25 @@
 @extends('layouts.main')
-
 @section('title')
-@endsection
+@section('navMhs','active')
 
-@section('container')
+@section('content')
 <h1>Daftar Mahasiswa Jurusan TI</h1>
-<ol>
-    @foreach ($mhs as $namaMhs)
-        <li>{{ $namaMhs }}</li>
+<table class="table table-bordered">
+    <tr>
+        <th>No</th>
+        <th>Nim</th>
+        <th>Nama</th>
+        <th>Email</th>
+        <th>Alamat</th>
+    </tr>
+    @foreach ($students as $student)
+    <tr>
+        <td>{{ $student->id}}</td>
+        <td>{{ $student->nim}}</td>
+        <td>{{ $student->nama_lengkap}}</td>
+        <td>{{ $student->email}}</td>
+        <td>{{ $student->alamat}}</td>
+    </tr>
     @endforeach
-</ol>
+</table>
 @endsection
