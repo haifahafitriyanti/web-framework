@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class MahasiswaController extends Controller
 {
+    public function index(){
+        $students=Student::latest()->paginate(5);
+        return view('akademik.mahasiswa',['students'=>$students]);
+    }
+
     public function cekObject()
     {
         $mahasiswa = new Student();
@@ -192,10 +197,10 @@ class MahasiswaController extends Controller
         return ('Data berhasil dihapus secara permanent');
     }
 
-    public function index()
-    {
-        return "Ini adalah halaman mahasiswa";
-    }
+    // public function index()
+    // {
+    //     return "Ini adalah halaman mahasiswa";
+    // }
 
     public function insertSql()
     {
